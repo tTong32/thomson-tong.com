@@ -21,6 +21,13 @@
                 <li><a href="resume">Resume</a></li>
             </ul>
         </nav>
+        <button id = "theme-toggle">Toggle Theme</button>
+        <script>
+            const btn = document.getElementById("theme-toggle");
+            btn.addEventListener('click', () => {
+                document.body.classList.toggle('light');
+            })
+        </script>
     </header>
     
     <main class="main">
