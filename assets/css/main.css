@@ -1,7 +1,7 @@
 :root {
   --default-font: "Inter", system-ui, sans-serif;
   --heading-font: "Montserrat", sans-serif;
-  --main-bg-color: #000;
+  --main-bg-color: #070606;
   --main-text-color: #fff;
   scroll-behavior: smooth;
 }
@@ -14,13 +14,54 @@ html, body {
   color: var(--main-text-color);
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 50px;
+}
+
 h1, h2, h3 {
   font-family: var(--heading-font);
 }
 
-/* Welcome Section */
+#navMenu {
+  position: fixed;
+  top: -80px;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.85);
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  transition: top 0.5s ease;
+  z-index: 1000;
+}
+
+#navMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+#navMenu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+#navMenu.visible {
+  top: 0;
+}
+
 #welcomeModal {
-  min-height: 100vh; /* full screen */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +71,67 @@ h1, h2, h3 {
   transition: opacity 1s;
 }
 
-/* Projects Section */
+#scrollArrow {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: clamp(14px, 1.5vw, 18px);
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  z-index: 20;
+  pointer-events: auto;
+  user-select: none;
+}
+
+#scrollArrow span {
+  display: inline-block;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+#scrollArrow.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#projects, #about {
+  margin-bottom: clamp(400px, 12vw, 800px);
+}
+
+#about {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s linear 0.6s;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: clamp(13px, 1vw, 16px);
+  margin: 120px auto 100px;
+  max-width: 700px;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+#about.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
 #projects {
   opacity: 0;
   transform: translateY(30px);
@@ -39,11 +140,9 @@ h1, h2, h3 {
   padding: 15px 20px;
   border-radius: 10px;
   font-size: clamp(13px, 1vw, 16px);
-  margin-top: 120px;
-  margin-bottom: 100px;
+  margin-top: clamp(400px, 12vw, 800px);
 }
 
-/* Revealed state */
 #projects.visible {
   opacity: 1;
   visibility: visible;
@@ -51,18 +150,17 @@ h1, h2, h3 {
   transition-delay: 0s;
 }
 
-/* Project Cards */
 .project.cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 20px;
+  justify-content: center; 
+  gap: clamp(15px, 3vw, 40px); 
   margin-top: 15px;
 }
 
 .project.card {
   flex: 1 1 180px;
-  max-width: 200px;
+  max-width: 220px;
   min-width: 150px;
 
   background-color: #111;
@@ -71,35 +169,30 @@ h1, h2, h3 {
   font-size: clamp(12px, 0.9vw, 14px);
   text-align: center;
 
-  /* visual / performance */
   transform: translateY(0) scale(1);
   transition: transform 260ms cubic-bezier(.2,.9,.2,1), box-shadow 260ms cubic-bezier(.2,.9,.2,1);
   box-shadow: 0 6px 12px rgba(0,0,0,0.25);
   will-change: transform, box-shadow;
-  position: relative; /* so z-index works reliably */
+  position: relative;
 }
 
-/* Hover / focus pop-up: scale + lift + deeper shadow */
 .project.card:hover,
 .project.card:focus-visible {
-  transform: translateY(-8px) scale(1.05);   /* upward lift + pop */
+  transform: translateY(-8px) scale(1.05);
   box-shadow: 0 18px 40px rgba(0,0,0,0.45);
   z-index: 10;
-  outline: none; /* keep focus-visible style below for a11y */
+  outline: none;
 }
 
-/* Accessible focus ring for keyboard users */
 .project.card:focus-visible {
   box-shadow: 0 18px 40px rgba(0,0,0,0.45), 0 0 0 3px rgba(255,255,255,0.06);
 }
 
-/* Tapping on mobile: give quick tactile feedback */
 .project.card:active {
   transform: translateY(-4px) scale(1.02);
   transition-duration: 120ms;
 }
 
-/* Respect user's reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   .project.card,
   .project.card:hover,
@@ -125,3 +218,47 @@ h1, h2, h3 {
   border-radius: 3px;
   font-size: 0.7em;
 }
+
+.typing {
+  border-right: 2px solid black;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.typing::after {
+  content: "|";
+  display: inline-block;
+  width: 0;
+  animation: blink 0.7s step-start infinite;
+  margin-left: 2px;
+  position: relative;
+}
+
+@keyframes blink{
+  50% { opacity: 0; }
+}
+
+#projects-more {
+  margin-top: 20px;
+  padding: 12px 26px;
+  font-size: 1em;
+  background: linear-gradient(135deg, #222, #333);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+#projects-more:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, #333, #555);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4),
+              0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+#projects-more:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
