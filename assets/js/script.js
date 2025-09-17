@@ -59,8 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const title = card.querySelector('h3');
                     const desc = card.querySelector('p');
    
-                    typeWriter(title);
-                    typeWriter(desc);
+                    // 120, 80ms per character typed
+                    typeWriter(title, 120);
+                    typeWriter(desc, 65);
                 });
             }
             obs.unobserve(entry.target);
@@ -73,11 +74,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if ('scrollRestoration' in history){
         history.scrollRestoration = 'manual';
     }
+
+    document.getElementById("copyEmail").addEventListener("click", (e) => {
+    e.preventDefault(); // stop navigation
+
+    const email = "yourname@example.com"; // replace with your email
+
+    navigator.clipboard.writeText(email).then(() => {
+        const msg = document.getElementById("copyMessage");
+        msg.classList.add("show");
+
+        setTimeout(() => {
+        msg.classList.remove("show");
+        }, 2000); // hide after 2 seconds
+        }).catch(err => {
+            console.error("Failed to copy: ", err);
+        });
+    });
+
+
+
 });
 
-function typeWriter(element, callback) {
+// type writer effect for projects section
+function typeWriter(element, timeOffset, callback) {
     let i = 0;
-    const speed = 120;
     const text = element.getAttribute("data-text") || element.textContent.trim();
     element.textContent = "";
 
@@ -85,7 +106,7 @@ function typeWriter(element, callback) {
     if (i < text.length) {
         element.textContent += text.charAt(i);
         i++;
-        setTimeout(typing, speed);
+        setTimeout(typing, timeOffset);
     } else {
         setTimeout(() => element.classList.remove("typing"), 500);
         if (typeof callback === "function") callback();

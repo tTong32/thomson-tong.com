@@ -14,13 +14,15 @@
 <main class="main">
     <nav id = "navMenu">
         <ul> 
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="blog">Blog</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
             <li><a href="Resume">Resume</a></li>
-            <li><a href="LinkedIn">LinkedIn</a></li>
-            <li><a href="Github">Github</a></li>
+            <li><a href="https://www.linkedin.com/in/thomson-tong0728/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/tTong32" target="_blank" rel="noopener noreferrer">Github</a></li>
+            <li><a href="thomtong2370@gmail.com" id="copyEmail">Email</a></li>
         </ul>
     </nav>
+    <div id="copyMessage">Copied!</div>
     <section id="welcomeModal">
       <h1>Hi, I'm Thomson!</h1>
     </section>
@@ -37,43 +39,46 @@
     </section>
 
     <section id="projects">
-      <h2>Here are some of my past projects!</h2>
+      <h2>Here are some of the stuff I've done:</h2>
       <div class="project cards">
         <div class="project card">
-          <img class="project image" src="assets/img/project1.png" alt="Project 1 image">
+          <img class="project image" src="assets/img/natural-selection-simulator.png" alt="Natural Selection Simulator Image">
           <div class="project content">
-            <h3>Project 1</h3>
-            <p>Description of project 1</p>
-            <div class="Natural Selection Sim">
+            <h3>Natural Selection Simulator</h3>
+            <p>A simulation based in Unity supporting over 2,500+ blobs evolve to increase their chances of survival over generations.
+            </p>
+            <div class="Badges">
               <span class="badge">Unity</span>
               <span class="badge">C#</span>
+              <span class="badge">Simulation</span>
             </div>
           </div>
         </div>
         <div class="project card">
-          <img class="project image" src="assets/img/project2.png" alt="Project 2 image">
+          <img class="project image" src="assets/img/gun-smash-bros.png" alt="Gun Smash Bros">
           <div class="project content">
-            <h3>Project 2</h3>
-            <p>Description of project 2</p>
-            <div class="Pneumatic Crutch">
+            <h3>Gun Smash Bros</h3>
+            <p>A reimagination of Super Smash Bros, this time with tons of projectiles! Made for a high school project.</p>
+            <div class="Badges">
+              <span class="badge">Java</span>
+            </div>
+          </div>
+        </div>
+        <div class="project card">
+          <img class="project image" src="assets/img/guitar-handle.png" alt="Guitar Handle">
+          <div class="project content">
+            <h3>Guitar Handle</h3>
+            <p>An ergonomic guitar handle designed for guitarists to reduce long term effects of muscular dystrophy.</p>
+            <div class="badges">
               <span class="badge">Engineering</span>
               <span class="badge">Iterative Design</span>
             </div>
           </div>
         </div>
-        <div class="project card">
-          <img class="project image" src="assets/img/project3.png" alt="Project 3 image">
-          <div class="project content">
-            <h3>Project 3</h3>
-            <p>Description of project 3</p>
-            <div class="Guitar Handle">
-              <span class="badge">Python</span>
-              <span class="badge">Machine Learning</span>
-            </div>
-          </div>
-        </div>
       </div>
-      <button id="projects-more">See More</button>
+        <a href="projects.html">
+            <button id="projects-more">See More</button>
+        </a>
     </section>
   </main>
   <script src = "assets/js/script.js"></script>
