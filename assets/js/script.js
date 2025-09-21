@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("copyEmail").addEventListener("click", (e) => {
     e.preventDefault(); // stop navigation
 
-    const email = "yourname@example.com"; // replace with your email
+    const email = "thomtong2370@gmail.com"; // replace with your email
 
     navigator.clipboard.writeText(email).then(() => {
         const msg = document.getElementById("copyMessage");

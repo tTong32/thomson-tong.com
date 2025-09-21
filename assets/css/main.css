@@ -21,13 +21,14 @@ body {
 
 main {
   flex: 1;
-  padding-bottom: 50px;
+  padding-bottom: 40px;
 }
 
 h1, h2, h3 {
   font-family: var(--heading-font);
 }
 
+/* Navbar container */
 #navMenu {
   position: fixed;
   top: -80px;
@@ -41,37 +42,60 @@ h1, h2, h3 {
   z-index: 1000;
 }
 
+/* Flex container for links */
 #navMenu ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: clamp(20px, 6vw, 60px);
 }
 
+/* Resume button + icons */
 #navMenu a {
   color: white;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.2vw, 1.7rem);
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  padding-top: clamp(2px, 0.8vw, 8px);
 }
 
-#navMenu.visible {
+/* Hover effects */
+#navMenu a:hover {
+  color: #00bfff;
+}
+
+#navMenu.visible{
   top: 0;
 }
 
+/* Resume button styling */
+.resume-btn {
+  padding: 6px 14px;
+  border: 1px solid #00bfff;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.resume-btn:hover {
+  background: #00bfff;
+  color: black;
+}
+
+/* Copy message popup */
 #copyMessage {
   position: fixed;
-  bottom: 20px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-
   background: #333;
   color: #fff;
-  padding: 10px 16px;
+  padding: 10px 20px;
   border-radius: 6px;
   font-size: 0.9em;
-
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -80,6 +104,7 @@ h1, h2, h3 {
 #copyMessage.show {
   opacity: 1;
 }
+
 
 #welcomeModal {
   min-height: 100vh;
@@ -261,29 +286,5 @@ h1, h2, h3 {
 
 @keyframes blink{
   50% { opacity: 0; }
-}
-
-#projects-more {
-  margin-top: 20px;
-  padding: 12px 26px;
-  font-size: 1em;
-  background: linear-gradient(135deg, #222, #333);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-}
-
-#projects-more:hover {
-  transform: translateY(-3px) scale(1.05);
-  background: linear-gradient(135deg, #333, #555);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4),
-              0 0 8px rgba(255, 255, 255, 0.1);
-}
-
-#projects-more:active {
-  transform: translateY(0) scale(0.98);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
