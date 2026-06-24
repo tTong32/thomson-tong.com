@@ -197,17 +197,18 @@ h1, h2, h3 {
 }
 
 .project.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; 
-  gap: clamp(15px, 3vw, 40px); 
-  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(15px, 2vw, 24px);
+  margin: 15px auto 0;
+  max-width: 960px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .project.card {
-  flex: 1 1 180px;
-  max-width: 240px;
-  min-width: 160px;
+  max-width: none;
+  min-width: 0;
 
   background-color: #111;
   border-radius: 8px;
@@ -241,6 +242,20 @@ h1, h2, h3 {
   transition-duration: 120ms;
 }
 
+@media (max-width: 768px) {
+  .project.cards {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project.cards {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .project.card,
   .project.card:hover,
@@ -258,6 +273,29 @@ h1, h2, h3 {
   object-fit: cover;
   border-radius: 4px;
   display: block;
+}
+
+.project.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.project.header h3 {
+  margin: 0;
+}
+
+.project-github {
+  color: #fff;
+  font-size: 1.1em;
+  line-height: 1;
+  transition: color 0.3s;
+}
+
+.project-github:hover {
+  color: #00bfff;
 }
 
 .badge {

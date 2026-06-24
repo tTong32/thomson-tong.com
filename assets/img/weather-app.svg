@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" role="img" aria-label="Weather App">
+  <rect width="480" height="300" fill="#0d1117"/>
+  <circle cx="170" cy="120" r="42" fill="#fbbf24"/>
+  <ellipse cx="280" cy="145" rx="90" ry="48" fill="#64748b"/>
+  <ellipse cx="220" cy="155" rx="70" ry="40" fill="#94a3b8"/>
+  <text x="240" y="230" fill="#fff" font-family="Inter, sans-serif" font-size="48" text-anchor="middle">22°C</text>
+  <text x="240" y="260" fill="#888" font-family="Inter, sans-serif" font-size="28" text-anchor="middle">Weather App</text>
+</svg>

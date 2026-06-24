@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" role="img" aria-label="ECG Analysis">
+  <rect width="480" height="300" fill="#0d1117"/>
+  <polyline points="40,150 80,150 95,90 110,210 125,150 160,150 175,110 190,190 205,150 240,150 255,100 270,200 285,150 320,150 335,120 350,180 365,150 440,150"
+    fill="none" stroke="#00bfff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="240" y="260" fill="#888" font-family="Inter, sans-serif" font-size="28" text-anchor="middle">ECG Analysis</text>
+</svg>
