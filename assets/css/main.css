@@ -273,6 +273,7 @@ h1, h2, h3 {
   object-fit: cover;
   border-radius: 4px;
   display: block;
+  margin-bottom: 10px;
 }
 
 .project.header {
@@ -295,6 +296,17 @@ h1, h2, h3 {
 }
 
 .project-github:hover {
+  color: #00bfff;
+}
+
+.project-demo {
+  color: #fff;
+  font-size: 0.95em;
+  line-height: 1;
+  transition: color 0.3s;
+}
+
+.project-demo:hover {
   color: #00bfff;
 }
 

@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" role="img" aria-label="Poker Bot">
-  <rect width="480" height="300" fill="#0d1117"/>
-  <rect x="150" y="70" width="90" height="130" rx="8" fill="#1a472a" stroke="#fff" stroke-width="3"/>
-  <text x="195" y="150" fill="#fff" font-family="Georgia, serif" font-size="52" text-anchor="middle">A</text>
-  <rect x="240" y="85" width="90" height="130" rx="8" fill="#8b0000" stroke="#fff" stroke-width="3"/>
-  <text x="285" y="165" fill="#fff" font-family="Georgia, serif" font-size="52" text-anchor="middle">K</text>
-  <circle cx="240" cy="230" r="18" fill="#ffd700" stroke="#b8860b" stroke-width="2"/>
-  <text x="240" y="260" fill="#888" font-family="Inter, sans-serif" font-size="28" text-anchor="middle">Poker Bot</text>
-</svg>
